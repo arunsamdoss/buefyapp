@@ -9,18 +9,10 @@
         <p>
           <small>
             The source code is licensed under
-            <a
-              href="http://opensource.org/licenses/mit-license.php"
-              target="_blank"
-              >MIT</a
-            >.
+            <a href="#" target="_blank">MIT</a>.
             <br />
             The website content is licensed under
-            <a
-              href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-              target="_blank"
-              >CC ANs</a
-            >.
+            <a href="#" target="_blank">nOT</a>.
           </small>
         </p>
 
@@ -53,3 +45,8 @@ export default {
   name: "Footer"
 };
 </script>
+<style scoped>
+.footer {
+  background-color: black;
+}
+</style>

@@ -1,7 +1,14 @@
 <template>
-  <div class="container">
+  <div>
     <b-carousel
+      :arrow="arrow"
+      :repeat="arrowBoth"
+      :arrow-hover="arrowHover"
       :indicator="indicator"
+      :icon-pack="iconPack"
+      :icon-prev="iconPrev"
+      :icon-next="iconNext"
+      :icon-size="iconSize"
       :indicator-background="indicatorBackground"
       :indicator-inside="indicatorInside"
       :indicator-mode="indicatorMode"
@@ -22,8 +29,15 @@
 export default {
   data() {
     return {
+      arrow: true,
+      arrowBoth: true,
+      arrowHover: true,
+      iconPack: "mdi",
+      iconPrev: "arrow-left",
+      iconNext: "arrow-right",
+      iconSize: "is-small",
       indicator: true,
-      indicatorBackground: true,
+      indicatorBackground: false,
       indicatorInside: true,
       indicatorMode: "hover",
       indicatorPosition: "is-bottom",

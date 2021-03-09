@@ -2,7 +2,7 @@
   <div class="columns">
     <div class="column is-three-fifths is-offset-one-fifth">
       <!-- eslint-disable vue/require-v-for-key vue/valid-v-for -->
-      <b-table :data="data" v-for="product in products" track-by="id">
+      <b-table :data="data" v-for="product in products" :key="id">
         <!-- eslint-enable -->
         <b-table-column>
           <template>
