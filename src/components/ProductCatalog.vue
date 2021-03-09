@@ -15,7 +15,7 @@
                 </span>
                 <h1 class="title">{{ product.name }}</h1>
                 <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
+                <p>Rs: {{ product.price }}</p>
               </div>
             </div>
           </div>

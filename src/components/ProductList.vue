@@ -1,41 +1,40 @@
 <template>
-  <div class="container">
-    <div>
-      <table class="table table-hover product-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- eslint-disable vue/require-v-for-key -->
-          <tr v-for="product in products" track-by="id">
-            <!-- eslint-enable -->
-
-            <td>{{ product.name }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.price }}</td>
-            <td>
-              <b-button
-                v-on:click.prevent="onEdit(product)"
-                type="is-primary"
-                outlined
-                >Edit</b-button
-              >
-              <b-button
-                v-on:click.prevent.stop="onRemove(product.id)"
-                icon-right="delete"
-                type="is-danger"
-                outlined
-                >X</b-button
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="columns">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <!-- eslint-disable vue/require-v-for-key vue/valid-v-for -->
+      <b-table :data="data" v-for="product in products" track-by="id">
+        <!-- eslint-enable -->
+        <b-table-column>
+          <template>
+            {{ product.name }}
+          </template>
+        </b-table-column>
+        <b-table-column>
+          <template>
+            {{ product.description }}
+          </template>
+        </b-table-column>
+        <b-table-column>
+          <template>
+            {{ product.price }}
+          </template>
+        </b-table-column>
+        <b-table-column>
+          <b-button
+            v-on:click.prevent="onEdit(product)"
+            type="is-primary"
+            outlined
+            >Edit</b-button
+          >
+          <b-button
+            v-on:click.prevent.stop="onRemove(product.id)"
+            icon-right="delete"
+            type="is-danger"
+            outlined
+            >x</b-button
+          >
+        </b-table-column>
+      </b-table>
     </div>
   </div>
 </template>
@@ -44,7 +43,9 @@
 export default {
   props: ["products"],
   data() {
-    return {};
+    return {
+      data: [this.products]
+    };
   },
   methods: {
     onEdit(product) {
