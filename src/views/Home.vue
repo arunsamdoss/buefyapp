@@ -5,6 +5,9 @@
     <br />
     <productCatalog />
     <br />
+    <foods-catalog />
+    <br />
+    <watchsCatalog />
     <Footer />
   </div>
 </template>
@@ -14,14 +17,18 @@
 import Navbar from "@/components/navbar.vue";
 import Carousel from "../components/carousel.vue";
 import ProductCatalog from "../components/ProductCatalog.vue";
+import foodsCatalog from "../components/foodsCatalog.vue";
 import Footer from "../components/footer.vue";
+import watchsCatalog from "../components/watchesCatalog.vue";
 export default {
   name: "Home",
   components: {
     Navbar,
     Carousel,
     ProductCatalog,
-    Footer
+    foodsCatalog,
+    Footer,
+    watchsCatalog
   }
 };
 </script>

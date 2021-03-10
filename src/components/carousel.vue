@@ -46,17 +46,23 @@ export default {
   },
   methods: {
     getImgUrl(value) {
-      return `https://picsum.photos/id/32${value}/1230/500`;
+      return `https://picsum.photos/id/41${value}/1230/500`;
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .is-active .al img {
   filter: grayscale(0%);
 }
 .al img {
   filter: grayscale(100%);
+}
+.image {
+  height: 450px;
+}
+.image img {
+  width: 100%;
 }
 </style>

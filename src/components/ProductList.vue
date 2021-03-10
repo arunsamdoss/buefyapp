@@ -44,7 +44,7 @@ export default {
   props: ["products"],
   data() {
     return {
-      data: [this.products]
+      data: ["products"]
     };
   },
   methods: {
