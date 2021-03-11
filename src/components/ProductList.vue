@@ -1,25 +1,43 @@
 <template>
-  <div class="columns">
-    <div class="column is-three-fifths is-offset-one-fifth">
-      <!-- eslint-disable vue/require-v-for-key vue/valid-v-for -->
-      <b-table :data="data" v-for="product in products" :key="id">
-        <!-- eslint-enable -->
-        <b-table-column>
-          <template>
-            {{ product.name }}
+  <div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter">
+      <b-table :data="products">
+        <b-table-column field="product.name" label="Name">
+          <template v-slot:header="{ column }">
+            <b-tooltip :label="column.label" append-to-body dashed>
+              {{ column.label }}
+            </b-tooltip>
+          </template>
+          <template v-slot="props">
+            {{ props.row.name }}
           </template>
         </b-table-column>
-        <b-table-column>
-          <template>
-            {{ product.description }}
+
+        <b-table-column field="product.description" label="Description">
+          <template v-slot:header="{ column }">
+            <b-tooltip :label="column.label" append-to-body dashed>
+              {{ column.label }}
+            </b-tooltip>
+          </template>
+          <template v-slot="props">
+            {{ props.row.description }}
           </template>
         </b-table-column>
-        <b-table-column>
-          <template>
-            {{ product.price }}
+        <b-table-column field="product.price" label="price">
+          <template v-slot:header="{ column }">
+            <b-tooltip :label="column.label" append-to-body dashed>
+              {{ column.label }}
+            </b-tooltip>
+          </template>
+          <template v-slot="props">
+            {{ props.row.price }}
           </template>
         </b-table-column>
-        <b-table-column>
+        <b-table-column
+          label="Action"
+          v-for="(product, id) in products.slice(0, 1)"
+          v-bind:key="id"
+        >
           <b-button
             v-on:click.prevent="onEdit(product)"
             type="is-primary"
@@ -27,7 +45,7 @@
             >Edit</b-button
           >
           <b-button
-            v-on:click.prevent.stop="onRemove(product.id)"
+            v-on:click.prevent="onRemove(product.id)"
             icon-right="delete"
             type="is-danger"
             outlined
@@ -40,13 +58,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  props: ["products"],
   data() {
-    return {
-      data: ["products"]
-    };
+    return {};
   },
+  computed: mapGetters({
+    products: "getProducts"
+  }),
   methods: {
     onEdit(product) {
       this.$emit("edit", product);

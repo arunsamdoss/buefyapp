@@ -2,16 +2,12 @@
   <div class="ManageProducts">
     <Navbar />
     <productAdd :product="productInForm" v-on:submit="onFormSave" />
-    <product-list
-      :products="products"
-      v-on:edit="onEditClicked"
-      v-on:remove="onRemoveClicked"
-    />
+    <product-list v-on:edit="onEditClicked" v-on:remove="onRemoveClicked" />
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 import Navbar from "@/components/navbar.vue";
 import ProductList from "../components/ProductList.vue";
@@ -36,9 +32,6 @@ export default {
     ProductList
   },
   data: initialData,
-  computed: mapGetters({
-    products: "getProducts"
-  }),
   methods: {
     ...mapActions(["saveProduct", "deleteProduct"]),
     onFormSave(product) {
