@@ -33,24 +33,28 @@
             {{ props.row.price }}
           </template>
         </b-table-column>
-        <b-table-column
-          label="Action"
-          v-for="(product, id) in products.slice(0, 1)"
-          v-bind:key="id"
-        >
-          <b-button
-            v-on:click.prevent="onEdit(product)"
-            type="is-primary"
-            outlined
-            >Edit</b-button
-          >
-          <b-button
-            v-on:click.prevent="onRemove(product.id)"
-            icon-right="delete"
-            type="is-danger"
-            outlined
-            >x</b-button
-          >
+        <b-table-column label="Edit" field="product.id">
+          <template>
+            <!-- eslint-disable vue/require-v-for-key vue/no-multiple-template-root -->
+            <!-- <div v-for="(product, id) in products.slice(0, 1)" :key="id"> -->
+            <button
+              class="button is-small is-light"
+              @click.prevent="onEdit(product)"
+            >
+              <b-icon icon="edit" size="is-small"></b-icon>
+            </button>
+            <!-- </div> -->
+          </template>
+        </b-table-column>
+        <b-table-column label="Delete" field="id">
+          <template v-slot="props">
+            <button
+              class="button is-small is-danger"
+              @click.prevent="onRemove(props.row.id)"
+            >
+              <b-icon icon="trash" size="is-small"></b-icon>
+            </button>
+          </template>
         </b-table-column>
       </b-table>
     </div>
@@ -69,6 +73,7 @@ export default {
   methods: {
     onEdit(product) {
       this.$emit("edit", product);
+      console.log(product);
     },
     onRemove(productId) {
       this.$emit("remove", productId);

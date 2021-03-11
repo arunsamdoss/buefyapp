@@ -38,9 +38,7 @@
 export default {
   props: ["product"],
   data() {
-    return {
-      formErrors: {}
-    };
+    return {};
   },
   methods: {
     onSubmit() {
