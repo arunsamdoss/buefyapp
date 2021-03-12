@@ -15,7 +15,7 @@
 
         <b-table-column field="product.description" label="Description">
           <template v-slot:header="{ column }">
-            <b-tooltip :label="column.label" append-to-body dashed>
+            <b-tooltip>
               {{ column.label }}
             </b-tooltip>
           </template>
@@ -25,7 +25,7 @@
         </b-table-column>
         <b-table-column field="product.price" label="price">
           <template v-slot:header="{ column }">
-            <b-tooltip :label="column.label" append-to-body dashed>
+            <b-tooltip>
               {{ column.label }}
             </b-tooltip>
           </template>
@@ -33,13 +33,13 @@
             {{ props.row.price }}
           </template>
         </b-table-column>
-        <b-table-column label="Edit" field="product.id">
+        <b-table-column label="Edit" field="products">
           <template>
             <!-- eslint-disable vue/require-v-for-key vue/no-multiple-template-root -->
             <!-- <div v-for="(product, id) in products.slice(0, 1)" :key="id"> -->
             <button
               class="button is-small is-light"
-              @click.prevent="onEdit(product)"
+              @click.prevent="onEdit(products)"
             >
               <b-icon icon="edit" size="is-small"></b-icon>
             </button>

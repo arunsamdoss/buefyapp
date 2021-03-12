@@ -1,13 +1,13 @@
 <template>
   <div class="columns is-mobile">
     <div class="column is-half is-offset-one-quarter">
-      <b-field label="Name" style="width: 500px">
+      <b-field label="NAME" style="width: 500px">
         <b-input
           v-model="product.name"
           placeholder="Enter product name"
         ></b-input>
       </b-field>
-      <b-field label="description" style="width: 500px">
+      <b-field label="DESCRIPTION" style="width: 500px">
         <b-input
           maxlength="200"
           type="textarea"
@@ -15,7 +15,7 @@
           placeholder="Enter product description"
         ></b-input>
       </b-field>
-      <b-field label="price" style="width: 500px">
+      <b-field label="PRICE" style="width: 500px">
         <b-input
           v-model="product.price"
           type="number"
@@ -25,12 +25,12 @@
       <b-field>
         <b-button
           type="is-primary"
+          class="btnadd"
           v-on:click.prevent="onSubmit"
-          style="width: 200px"
           >{{ product.id ? "Update" : "Add" }}</b-button
         >
+        <b-button type="is-danger" class="btncnl">cancel</b-button>
       </b-field>
-      <!-- <b-button type="is-danger" style="width: 200px">cancel</b-button> -->
     </div>
   </div>
 </template>
@@ -47,3 +47,12 @@ export default {
   }
 };
 </script>
+<style scoped>
+.btnadd {
+  width: 120px;
+}
+.btncnl {
+  margin-left: 10px;
+  width: 120px;
+}
+</style>

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <p>
-          Made with <b-icon icon="favorite" type="is-danger"></b-icon> by
+          Made with <b-icon icon="thumbs-up" type="is-danger"></b-icon> by
           <a href="" target="_blank">Neeth</a>.
         </p>
         <p>

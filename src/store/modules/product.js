@@ -33,7 +33,7 @@ const getters = {
 };
 const actions = {
   saveProduct({ commit, state }, product) {
-    const index = state.all.findIndex(p => p.id === product.id);
+    const index = state.all.findIndex(p => p.id == product.id);
 
     if (index !== -1) {
       commit("UPDATE_PRODUCT", product);

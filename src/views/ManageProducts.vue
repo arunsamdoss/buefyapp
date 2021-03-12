@@ -16,7 +16,7 @@ import ProductAdd from "../components/productAdd";
 const initialData = () => {
   return {
     productInForm: {
-      id: "",
+      id: null,
       name: "",
       description: "",
       price: null
